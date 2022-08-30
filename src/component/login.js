@@ -1,56 +1,49 @@
-export const logo = () => {
+export const login = () => {
+  const logearse = document.createElement("div");  
+
+  logearse.className = "container-login";
+  // logearse.textContent = "este es el login!";
+  //console.log(logearse);
+
   const logoPrincipal = document.createElement("img");
   logoPrincipal.setAttribute("width", "200px");
   logoPrincipal.setAttribute("src", "./component/logo.jpg");
-  return logoPrincipal;  
-};
+  logearse.appendChild(logoPrincipal)
 
-export const titulo = () => {
   const tituloUno = document.createElement("h1");
   tituloUno.textContent = "Comparte tus experiencias gatunas!!";
-  return tituloUno;
-};
+  logearse.appendChild(tituloUno);
 
-export const loginCorreo = () => {
   const ingresarCorreo = document.createElement("input");
   ingresarCorreo.setAttribute("placeholder", "E-mail");
-  return ingresarCorreo;
-};
+  logearse.appendChild(ingresarCorreo);
 
-export const loginClave = () => {
   const ingresarClave = document.createElement("input");
-  ingresarClave.setAttribute("placeholder", "Contraseña");
-  return ingresarClave;
-};
+  ingresarClave.setAttribute("placeholder", "E-mail");
+  logearse.appendChild(ingresarClave);
 
-export const btnIngresar = () => {
   const botonIngresar = document.createElement("button");
   botonIngresar.innerHTML = "Ingresar";
-  return botonIngresar;
+  logearse.appendChild(botonIngresar);
 
-};
-
-export const fraseRegistro = () => {
   const parrafoRegistrar = document.createElement("h1");
   parrafoRegistrar.textContent = "¿No tienes clave? Registrate aqui";
-  return parrafoRegistrar;
-};
+  logearse.appendChild(parrafoRegistrar);
 
-export const fraseRecuperarClave = () => {
   const parrafoRecuperarClave = document.createElement("h1");
   parrafoRecuperarClave.textContent = "¿Olvidaste tu clave? Recuperala aqui";
-  return parrafoRecuperarClave;
-};
+  logearse.appendChild(parrafoRecuperarClave);
 
-export const iniciarSesionGoogle = () => {
   const sesionGoogle = document.createElement("h1");
-  sesionGoogle .textContent = "Inicia sesion con";
-  return sesionGoogle ;
-};
+  sesionGoogle.textContent = "Inicia sesion con";
+  logearse.appendChild(sesionGoogle);
 
-export const fotoGoogle = () => {
   const imagenGoogle = document.createElement("img");
   imagenGoogle.setAttribute("width", "50px");
   imagenGoogle.setAttribute("src", "./component/ggoogle.jpg");
-  return imagenGoogle;
+  logearse.appendChild(imagenGoogle)
+
+  return logearse;
 };
+
+
