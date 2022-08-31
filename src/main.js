@@ -1,19 +1,43 @@
 // // Este es el punto de entrada de tu aplicacion
-
 import { login } from "./component/login.js";
-document.getElementById("root").append(login());
+import { changeRoute } from './lib/ruta.js';
 
-import { register } from "./component/register.js";
-document.getElementById("root").append(register());
+window.addEventListener("load", ()=> {
+    document.getElementById("root").append(login());
+    window.addEventListener("hashchange", () =>{
+        console.log(window.location.hash);
+        changeRoute(window.location.hash)
+    })
 
-import { getPassword } from "./component/getPassword.js";
-document.getElementById("root").append(getPassword());
 
-import { loginGoogle } from "./component/loginGoogle.js";
-document.getElementById("root").append(loginGoogle());
+})
 
-import { wall } from "./component/wall.js";
-document.getElementById("root").append(wall());
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 // window.addEventListener("hashchange", function (){
 //          console.log(window.location.hash);
