@@ -1,0 +1,64 @@
+html {
+    margin: 0%;
+    padding: 0%;
+}
+
+body {
+    background-color: #FFDACC;
+    text-align: center;
+
+}
+
+
+
+h1 {
+
+    font-family: 'Irish Grover', cursive;
+    color: #8EBD9F;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 29px;
+}
+
+p {
+    font-family: 'Jomhuria', cursive;;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 30px;
+    line-height: 30px;
+    color: #8EBD9F;
+    margin: 1px;
+    
+    
+}
+
+input{
+    background: #FFEEE6;
+    border-radius: 5px;
+    border: none;
+    padding: 8px;
+    /* display: flex; */
+    
+    
+    
+}
+
+button{
+    background: #FCB1A7;
+    color: #8EBD9F;
+    font-weight: bold;
+    border-radius: 5px;
+    padding: 7px;
+    border: 1px;
+    margin-bottom: 10px;
+
+}
+
+/* Mobile */
+@media (max-width: 575px) {
+    .character-container {
+        width: 100%;
+        /* padding-left: 20%; */
+    }
+}
