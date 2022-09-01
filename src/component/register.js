@@ -1,4 +1,7 @@
+import { createUser } from "../lib/firebase.js";
+  
 export const register = () => {
+    createUser('catbook1@gmail.com', 'gatito123');
     const registrarse = document.createElement("div");
 
     registrarse.className = "container-register";
@@ -7,7 +10,7 @@ export const register = () => {
 
     const logoPrincipal = document.createElement("img");
     logoPrincipal.setAttribute("width", "200px");
-    logoPrincipal.setAttribute("src", "./component/gatonuevo.jpg");
+    logoPrincipal.setAttribute("src", "./component/logoTrans.png");
     registrarse.appendChild(logoPrincipal)
 
     const tituloUno = document.createElement("h1");
