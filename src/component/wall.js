@@ -7,7 +7,7 @@ export const wall = () => {
 
     const logoPrincipal = document.createElement("img");
     logoPrincipal.setAttribute("width", "200px");
-    logoPrincipal.setAttribute("src", "./component/logo.jpg");
+    logoPrincipal.setAttribute("src", "./component/logoTrans.png");
     muroPrinc.appendChild(logoPrincipal)
 
     return muroPrinc;

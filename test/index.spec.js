@@ -1,8 +1,12 @@
 // importamos la funcion que vamos a testear
-import { myFunction } from '../src/lib/index';
+import { changeRoute } from '../src/lib/ruta.js';
 
-describe('myFunction', () => {
+describe('cambia hashing', () => {
   it('debería ser una función', () => {
-    expect(typeof myFunction).toBe('function');
+    expect(typeof changeRoute).toBe('function');
+    
   });
 });
+it()
+let
+expect

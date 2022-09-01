@@ -7,8 +7,8 @@ export const getPassword = () => {
 
     const logoPrincipal = document.createElement("img");
     logoPrincipal.setAttribute("width", "200px");
-    logoPrincipal.setAttribute("src", "./component/logo.jpg");
-    recuperar.appendChild(logoPrincipal);
+    logoPrincipal.setAttribute("src", "./component/logoTrans.png");
+    recuperar.appendChild(logoPrincipal)
 
     const tituloUno = document.createElement("h1");
     tituloUno.textContent = "Ingresa tu correo para recuperar contraseña";
@@ -18,9 +18,15 @@ export const getPassword = () => {
     mailRecuperar.setAttribute("placeholder", "E-mail");
     recuperar.appendChild(mailRecuperar);
 
+    // const botonRegistrarse = document.createElement("button");
+    // botonRegistrarse.innerHTML = "Enviar";
+    // recuperar.appendChild(botonRegistrarse);
+
     const botonRegistrarse = document.createElement("button");
-    botonRegistrarse.innerHTML = "Enviar";
+    botonRegistrarse.innerHTML = "<a href ='#/createNewPass'>Enviar</a>";
     recuperar.appendChild(botonRegistrarse);
+
+
 
     return recuperar;
 };

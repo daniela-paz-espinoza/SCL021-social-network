@@ -7,12 +7,11 @@ export const login = () => {
 
   const logoPrincipal = document.createElement("img");
   logoPrincipal.setAttribute("width", "200px");
-  logoPrincipal.setAttribute("src", "./component/gatonuevo.jpg");
+  logoPrincipal.setAttribute("src", "./component/logoTrans.png");
   logearse.appendChild(logoPrincipal)
 
   const tituloUno = document.createElement("h1");
   tituloUno.textContent = "Comparte tus experiencias gatunas!!";
-  //tituloUno.setAttribute = ("class", "titulo-register");
   logearse.appendChild(tituloUno);
 
   const ingresarCorreo = document.createElement("input");
@@ -30,7 +29,7 @@ export const login = () => {
   logearse.appendChild(document.createElement("br"));
 
   const botonIngresar = document.createElement("button");
-  botonIngresar.innerHTML = "Ingresar";
+  botonIngresar.innerHTML = "<a href ='#/wall'>aqui</a>";
   logearse.appendChild(botonIngresar);
 
   const parrafoRegistrar = document.createElement("p");
@@ -38,16 +37,17 @@ export const login = () => {
   logearse.appendChild(parrafoRegistrar);
 
   const parrafoRecuperarClave = document.createElement("p");
-  parrafoRecuperarClave.textContent = "¿Olvidaste tu clave? Recuperala aqui";
+  parrafoRecuperarClave.innerHTML = "¿Olvidaste tu clave? Recuperala <a href ='#/getPassword'>aqui</a>";
   logearse.appendChild(parrafoRecuperarClave);
 
   const sesionGoogle = document.createElement("p");
   sesionGoogle.textContent = "Inicia sesion con";
   logearse.appendChild(sesionGoogle);
 
-  const imagenGoogle = document.createElement("img");
-  imagenGoogle.setAttribute("width", "20px");
-  imagenGoogle.setAttribute("src", "./component/gootrans.jpg");
+  const imagenGoogle = document.createElement("a");
+  imagenGoogle.innerHTML = "<a href ='#/loginGoogle'>google</a>";
+  // imagenGoogle.setAttribute("width", "20px");
+  // imagenGoogle.setAttribute("src", "./component/gootrans.jpg");
   logearse.appendChild(imagenGoogle)
 
   return logearse;
