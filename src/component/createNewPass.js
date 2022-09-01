@@ -1,25 +1,39 @@
-export const createNewPAss = () => {
+export const createNewPass = () => {
     const crearNuevaContraseña = document.createElement("div");
 
     crearNuevaContraseña.className = "container-createNewPasword";
     // logearse.textContent = "este es el createNewPassword!";
     //console.log(logearse);
 
-const tituloUno = document.createElement("h1");
+    const logoPrincipal = document.createElement("img");
+    logoPrincipal.setAttribute("width", "200px");
+    logoPrincipal.setAttribute("src", "./component/logoTrans.png");
+    crearNuevaContraseña.appendChild(logoPrincipal)
+
+    const tituloUno = document.createElement("h1");
     tituloUno.textContent = "Crea tu nueva contraseña";
     crearNuevaContraseña.appendChild(tituloUno);
 
     const nuevoPass = document.createElement("input");
-    mailRecuperar.setAttribute("placeholder", "Nueva Contraseña");
+    nuevoPass.setAttribute("placeholder", "Nueva Contraseña");
     crearNuevaContraseña.appendChild(nuevoPass);
 
+    crearNuevaContraseña.appendChild(document.createElement("br"));
+    crearNuevaContraseña.appendChild(document.createElement("br"));
+
     const repNuevoPass = document.createElement("input");
-    mailRecuperar.setAttribute("placeholder", "Reingresa Nueva Contraseña");
+    repNuevoPass.setAttribute("placeholder", "Reingresa Nueva Contraseña");
     crearNuevaContraseña.appendChild(repNuevoPass);
 
+    crearNuevaContraseña.appendChild(document.createElement("br"));
+    crearNuevaContraseña.appendChild(document.createElement("br"));
+    // // const botonNuevoPass = document.createElement("button");
+    // // botonNuevoPass.innerHTML = "Crear Nueva Contraseña";
+    // // botonNuevoPass.appendChild(botonRegistrarse);
+
     const botonNuevoPass = document.createElement("button");
-    botonNuevoPass.innerHTML = "Crear Nueva Contraseña";
-    botonNuevoPass.appendChild(botonRegistrarse);
+    botonNuevoPass.innerHTML = "<a href ='#/login'>Crear Nueva Contraseña</a>";
+    crearNuevaContraseña.appendChild(botonNuevoPass);
 
     return crearNuevaContraseña;
 };
