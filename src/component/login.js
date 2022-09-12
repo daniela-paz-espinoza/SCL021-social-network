@@ -1,5 +1,8 @@
+import { createUser, loginWithGoogle } from "../lib/firebase.js";
+
+
 export const login = () => {
-  const logearse = document.createElement("div");  
+  const logearse = document.createElement("div");
 
   logearse.className = "container-login";
   // logearse.textContent = "este es el login!";
@@ -29,7 +32,8 @@ export const login = () => {
   logearse.appendChild(document.createElement("br"));
 
   const botonIngresar = document.createElement("button");
-  botonIngresar.innerHTML = "<a href ='#/wall'>aqui</a>";
+  botonIngresar.className = "btnIngresar";
+  botonIngresar.innerHTML = "<a href ='#/wall'>Ingresar</a>";
   logearse.appendChild(botonIngresar);
 
   const parrafoRegistrar = document.createElement("p");
@@ -44,11 +48,10 @@ export const login = () => {
   sesionGoogle.textContent = "Inicia sesion con";
   logearse.appendChild(sesionGoogle);
 
-  const imagenGoogle = document.createElement("a");
-  imagenGoogle.innerHTML = "<a href ='#/loginGoogle'>google</a>";
-  // imagenGoogle.setAttribute("width", "20px");
-  // imagenGoogle.setAttribute("src", "./component/gootrans.jpg");
-  logearse.appendChild(imagenGoogle)
+  const botonGoogle = document.createElement("button");
+  botonGoogle.innerHTML = "Login con Google";
+  botonGoogle.addEventListener("click" , loginWithGoogle)
+  logearse.appendChild(botonGoogle)
 
   return logearse;
 };

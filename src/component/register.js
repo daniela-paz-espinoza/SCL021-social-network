@@ -1,9 +1,7 @@
 import { createUser } from "../lib/firebase.js";
-  
-export const register = () => {
-    createUser('catbook1@gmail.com', 'gatito123');
-    const registrarse = document.createElement("div");
 
+export const register = () => {
+    const registrarse = document.createElement("div");
     registrarse.className = "container-register";
     // logearse.textContent = "este es el register!";
     //console.log(logearse);
@@ -17,14 +15,8 @@ export const register = () => {
     tituloUno.textContent = "Registrarse";
     registrarse.appendChild(tituloUno);
 
-    const ingresarNombre = document.createElement("input");
-    ingresarNombre.setAttribute("placeholder", "Nombre");
-    registrarse.appendChild(ingresarNombre);
-
-    registrarse.appendChild(document.createElement("br"));
-    registrarse.appendChild(document.createElement("br"));
-
     const ingresarMail = document.createElement("input");
+    ingresarMail.setAttribute("id", "emailLogin");
     ingresarMail.setAttribute("placeholder", "E-mail");
     registrarse.appendChild(ingresarMail);
 
@@ -32,19 +24,29 @@ export const register = () => {
     registrarse.appendChild(document.createElement("br"));
 
     const ingresarContraseñaNueva = document.createElement("input");
+    ingresarContraseñaNueva.setAttribute("id", "passwordLogin");
+    ingresarContraseñaNueva.type = "password";
     ingresarContraseñaNueva.setAttribute("placeholder", "Contraseña");
     registrarse.appendChild(ingresarContraseñaNueva);
 
     registrarse.appendChild(document.createElement("br"));
     registrarse.appendChild(document.createElement("br"));
 
-    // const genero = document.createElement("h1");
-    // genero.textContent = "Genero de tu Gato";
-    // logearse.appendChild(genero);
-
     const botonRegistrarse = document.createElement("button");
+    botonRegistrarse.className = "btnRegistrarse";
     botonRegistrarse.innerHTML = "Registrarse";
     registrarse.appendChild(botonRegistrarse);
+
+    botonRegistrarse.addEventListener("click", function () {
+        document.getElementsByClassName = "btnRegistrarse";
+        document.getElementById("root").innerHTML = "";
+        createUser(ingresarMail.value, ingresarContraseñaNueva.value).then(() => {
+            window.location.hash = "#/wall"
+        })
+
+    }
+    );
+    console.log(botonRegistrarse);
 
     const sesionGoogle = document.createElement("p");
     sesionGoogle.textContent = "O resgistrate con";
