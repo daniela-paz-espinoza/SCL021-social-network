@@ -7,7 +7,7 @@ export const loginGoogle = () => {
 
     const logoPrincipal = document.createElement("img");
     logoPrincipal.setAttribute("width", "200px");
-    logoPrincipal.setAttribute("src", "./component/logoTrans.png");
+    logoPrincipal.setAttribute("src", "./component/logoNuevo.png");
     registrarseGoogle.appendChild(logoPrincipal)
 
     return registrarseGoogle;

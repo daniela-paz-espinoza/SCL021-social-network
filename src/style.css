@@ -53,6 +53,10 @@ button{
 
 }
 
+nav{
+    background: white;
+}
+
 /* Mobile */
 @media (max-width: 575px) {
     .character-container {
