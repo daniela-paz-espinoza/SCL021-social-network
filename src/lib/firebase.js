@@ -1,6 +1,11 @@
 import { createUserWithEmailAndPassword, getAuth, signInWithPopup, GoogleAuthProvider } from 'https://www.gstatic.com/firebasejs/9.9.3/firebase-auth.js';
 const provider = new GoogleAuthProvider();
-import { auth } from './config.js';
+import { auth, db } from './config.js';
+import {
+  collection, addDoc, query, onSnapshot,  // collection, query, onSnapshot
+} from "https://www.gstatic.com/firebasejs/9.9.3/firebase-firestore.js";
+//import { db } from './config.js';
+
 
 export const createUser = (email, password) =>
   createUserWithEmailAndPassword(auth, email, password)
@@ -38,3 +43,23 @@ export const loginWithGoogle = () => {
       console.log(error)
     });
 }
+
+
+// Add a new document in collection "cities"
+async function createPost(texto) {
+  console.log(db);
+  await addDoc(collection(db, "post"), {
+    content: texto,
+  });
+
+}
+
+
+const unsub = onSnapshot(query(collection(db, "post")), (docs) => {
+  docs.forEach(doc => {
+    console.log("Current data: ", doc.data());
+  });
+
+});
+
+export { createPost };

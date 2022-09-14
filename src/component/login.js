@@ -10,7 +10,7 @@ export const login = () => {
 
   const logoPrincipal = document.createElement("img");
   logoPrincipal.setAttribute("width", "200px");
-  logoPrincipal.setAttribute("src", "./component/logoTrans.png");
+  logoPrincipal.setAttribute("src", "./component/logoNuevo.png");
   logearse.appendChild(logoPrincipal)
 
   const tituloUno = document.createElement("h1");
@@ -51,6 +51,7 @@ export const login = () => {
   const botonGoogle = document.createElement("button");
   botonGoogle.innerHTML = "Login con Google";
   botonGoogle.addEventListener("click" , loginWithGoogle)
+  
   logearse.appendChild(botonGoogle)
 
   return logearse;
