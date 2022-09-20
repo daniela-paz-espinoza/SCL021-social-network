@@ -5,6 +5,7 @@ import {
   collection, addDoc, query, onSnapshot,  // collection, query, onSnapshot
 } from "https://www.gstatic.com/firebasejs/9.9.3/firebase-firestore.js";
 //import { db } from './config.js';
+//import { showPosts } from '../component/wall.js';
 
 
 export const createUser = (email, password) =>
@@ -55,11 +56,28 @@ async function createPost(texto) {
 }
 
 
-const unsub = onSnapshot(query(collection(db, "post")), (docs) => {
-  docs.forEach(doc => {
-    console.log("Current data: ", doc.data());
+const unsub = (callback) => {
+  onSnapshot(query(collection(db, "post")), (docs) => {
+    docs.forEach(doc => {
+      //console.log("Current data: ", doc.data());
+      callback(doc.data())
+    });
+
   });
+}
 
-});
+// 
+// const bajarPosts = () => {
+//   const q = query(collection(db, "post"));
+//   const unsubscribe = onSnapshot(q, (querySnapshot) => {
+//     const posts = [];
+//     querySnapshot.forEach((doc) => {
+//       posts.push(doc.data());
+//     });
+//     showPosts(posts);
+//     console.log("Estos son los posteos: ", posts);
+//   });
+// };
+// bajarPosts();
 
-export { createPost };
+export { createPost, unsub };
