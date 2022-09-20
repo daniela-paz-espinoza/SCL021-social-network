@@ -8,7 +8,7 @@ export const register = () => {
 
     const logoPrincipal = document.createElement("img");
     logoPrincipal.setAttribute("width", "200px");
-    logoPrincipal.setAttribute("src", "./component/logoTrans.png");
+    logoPrincipal.setAttribute("src", "./component/logoNuevo.png");
     registrarse.appendChild(logoPrincipal)
 
     const tituloUno = document.createElement("h1");
