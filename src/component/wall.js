@@ -1,12 +1,12 @@
-import { createPost } from "../lib/firebase.js";
+import { createPost , unsub } from "../lib/firebase.js";
 
 export const wall = () => {
 
     //let post = [];
 
     const muroPrinc = document.createElement("div");
-
     muroPrinc.className = "container-muroPrinc";
+    //muroPrinc.setAttribute("id", "muro");
     // logearse.textContent = "este es el mainWall!";
     //console.log(logearse);
 
@@ -75,17 +75,42 @@ export const wall = () => {
     muroPrinc.appendChild(document.createElement("br"));
     muroPrinc.appendChild(document.createElement("br"));
 
+   
+   
+
     // const textAreaDos = document.createElement("textarea");
     // //textAreaDos.setAttribute("placeholder", "publica tu estado");
     // textAreaDos.setAttribute("maxLength", "200");
     // textAreaDos.setAttribute("required", "");
     // textAreaDos.setAttribute("id", "text-description");
     // muroPrinc.appendChild(textAreaDos);
-
-
-
-
+    unsub((post)=> {
+        console.log("yo estoy en wall" , post)
+        const postCard = document.createElement("div");
+        postCard.className = "post";
+        postCard.innerText= post.content;
+        muroPrinc.appendChild(postCard)
+    });
 
     return muroPrinc;
 }
+
+
+
+
+
+
+//dar aqui el lugar donde estaran alojados los post, usar for each
+// export const showPosts = (posts) => {
+//     let boxPrinc = document.getElementById("muro");
+//     //boxPrinc.innerHTML = "";
+//     for (let post of posts) {
+//         const el = document.createElement("div");
+//         el.className = "post";
+//         el.textContent = post.content;
+
+//         console.log(post);
+//         boxPrinc.appendChild(el);
+//     }
+// };
 
