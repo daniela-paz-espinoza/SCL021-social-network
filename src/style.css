@@ -4,7 +4,9 @@ html {
 }
 
 body {
-    background-color: #FFDACC;
+
+   
+    background-image: url(/src/component/fondo.jpg);
     text-align: center;
 
 }
