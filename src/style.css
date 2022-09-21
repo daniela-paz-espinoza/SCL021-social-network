@@ -2,21 +2,19 @@ html {
     margin: 0%;
     padding: 0%;
 }
-
 body {
+<<<<<<< HEAD
 
    
+=======
+>>>>>>> d43f3a1365d4822993b9db35d29fee6921c83e30
     background-image: url(/src/component/fondo.jpg);
     text-align: center;
-
 }
-
 /* div{
     background: black;
 } */
-
 h1 {
-
     font-family: 'Irish Grover', cursive;
     color: #8EBD9F;
     font-style: normal;
@@ -24,7 +22,6 @@ h1 {
     font-size: 24px;
     line-height: 29px;
 }
-
 p {
     font-family: 'Jomhuria', cursive;;
     font-style: normal;
@@ -33,21 +30,14 @@ p {
     line-height: 30px;
     color: #8EBD9F;
     margin: 1px;
-    
-    
 }
-
 input{
     background: #FFEEE6;
     border-radius: 5px;
     border: none;
     padding: 8px;
     /* display: flex; */
-    
-    
-    
 }
-
 button{
     background: #FCB1A7;
     color: #8EBD9F;
@@ -56,13 +46,10 @@ button{
     padding: 7px;
     border: 1px;
     margin-bottom: 10px;
-
 }
-
 nav{
     background: white;
 }
-
 #posteo{
     display: flex;
     position: relative;
@@ -71,7 +58,6 @@ nav{
     text-align: center;
     background: #FCB1A7;
     color: #8EBD9F;
-
 }
 /* Mobile */
 @media (max-width: 575px) {
