@@ -1,12 +1,12 @@
-import { createPost } from "../lib/firebase.js";
+import { createPost , unsub } from "../lib/firebase.js";
 
 export const wall = () => {
 
     //let post = [];
 
     const muroPrinc = document.createElement("div");
-
     muroPrinc.className = "container-muroPrinc";
+    //muroPrinc.setAttribute("id", "muro");
     // logearse.textContent = "este es el mainWall!";
     //console.log(logearse);
 
@@ -14,6 +14,9 @@ export const wall = () => {
     logoPrincipal.setAttribute("width", "200px");
     logoPrincipal.setAttribute("src", "./component/logoTrans.png");
     muroPrinc.appendChild(logoPrincipal);
+
+    muroPrinc.appendChild(document.createElement("br"));
+    muroPrinc.appendChild(document.createElement("br"));
 
     // const barraNav = document.createElement("nav")   
     // //const ul = document.createElement("ul") 
@@ -35,20 +38,38 @@ export const wall = () => {
     posteo.setAttribute("maxLength", "200");
     posteo.setAttribute("required", "");
     posteo.setAttribute("id", "text-description");
-    muroPrinc.appendChild(posteo);
 
-    muroPrinc.appendChild(document.createElement("br"));
-    muroPrinc.appendChild(document.createElement("br"));
-
+    
     const botonPublicar = document.createElement("button");
     botonPublicar.className = "btnpost";
     botonPublicar.textContent = "Publicar";
     botonPublicar.addEventListener("click", function () {
         document.getElementsByClassName = "btnpost";
-        document.getElementById("root").innerHTML = "";
+        divPosteo.innerHTML = "";
         createPost(posteo.value);
     });
     muroPrinc.appendChild(botonPublicar);
+
+    muroPrinc.appendChild(posteo);
+
+    muroPrinc.appendChild(document.createElement("br"));
+    muroPrinc.appendChild(document.createElement("br"));
+
+    const divPosteo = document.createElement("div");
+    muroPrinc.appendChild(divPosteo);
+
+   
+
+    
+    unsub((post)=> {
+        console.log("yo estoy en wall" , post)
+        const postCard = document.createElement("textarea");
+        postCard.setAttribute("readonly", "");
+        postCard.setAttribute("id", "posteo");
+        postCard.className = "post";
+        postCard.innerText= post.content;
+        divPosteo.appendChild(postCard)
+    });
 
     // const botonPublicar = document.createElement("button");
     // //botonPublicar.setAttribute("type", "submit");
@@ -75,17 +96,36 @@ export const wall = () => {
     muroPrinc.appendChild(document.createElement("br"));
     muroPrinc.appendChild(document.createElement("br"));
 
+   
+   
+
     // const textAreaDos = document.createElement("textarea");
     // //textAreaDos.setAttribute("placeholder", "publica tu estado");
     // textAreaDos.setAttribute("maxLength", "200");
     // textAreaDos.setAttribute("required", "");
     // textAreaDos.setAttribute("id", "text-description");
     // muroPrinc.appendChild(textAreaDos);
-
-
-
-
+   
 
     return muroPrinc;
 }
+
+
+
+
+
+
+//dar aqui el lugar donde estaran alojados los post, usar for each
+// export const showPosts = (posts) => {
+//     let boxPrinc = document.getElementById("muro");
+//     //boxPrinc.innerHTML = "";
+//     for (let post of posts) {
+//         const el = document.createElement("div");
+//         el.className = "post";
+//         el.textContent = post.content;
+
+//         console.log(post);
+//         boxPrinc.appendChild(el);
+//     }
+// };
 
