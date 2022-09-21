@@ -1,4 +1,5 @@
 import { createUser, loginWithGoogle } from "../lib/firebase.js";
+import { changeRoute } from "../lib/ruta.js";
 
 
 export const login = () => {
@@ -31,10 +32,18 @@ export const login = () => {
   logearse.appendChild(document.createElement("br"));
   logearse.appendChild(document.createElement("br"));
 
+
+  
   const botonIngresar = document.createElement("button");
   botonIngresar.className = "btnIngresar";
-  botonIngresar.innerHTML = "<a href ='#/wall'>Ingresar</a>";
+  //botonIngresar.innerHTML = "<a href ='#/wall'>Ingresar</a>";
+  botonIngresar.addEventListener("click" , ingresarConUsuario)
   logearse.appendChild(botonIngresar);
+
+  // ingresarConUsuario(ingresarCorreo.value, ingresarClave.value).then(() => {
+  //    changeRoute("#/wall");    
+  //  });
+
 
   const parrafoRegistrar = document.createElement("p");
   parrafoRegistrar.innerHTML = "¿No tienes clave? Registrate <a href ='#/register'>aqui</a>";
