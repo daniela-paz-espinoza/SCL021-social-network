@@ -1,7 +1,6 @@
 import { createUser, loginWithGoogle } from "../lib/firebase.js";
 import { changeRoute } from "../lib/ruta.js";
 
-
 export const login = () => {
   const logearse = document.createElement("div");
 
@@ -65,5 +64,3 @@ export const login = () => {
 
   return logearse;
 };
-
-
