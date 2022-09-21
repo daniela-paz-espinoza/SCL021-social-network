@@ -61,6 +61,16 @@ nav{
     background: white;
 }
 
+#posteo{
+    display: flex;
+    position: relative;
+    width: 25%;
+    margin-left: 35%;
+    text-align: center;
+    background: #FCB1A7;
+    color: #8EBD9F;
+
+}
 /* Mobile */
 @media (max-width: 575px) {
     .character-container {
