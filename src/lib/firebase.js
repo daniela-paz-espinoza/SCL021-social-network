@@ -1,9 +1,10 @@
-import { createUserWithEmailAndPassword, getAuth, signInWithPopup, GoogleAuthProvider } from 'https://www.gstatic.com/firebasejs/9.9.3/firebase-auth.js';
+import { createUserWithEmailAndPassword, getAuth, signInWithPopup, GoogleAuthProvider, signInWithEmailAndPassword } from 'https://www.gstatic.com/firebasejs/9.9.3/firebase-auth.js';
 const provider = new GoogleAuthProvider();
 import { auth, db } from './config.js';
 import {
   collection, addDoc, query, onSnapshot,  // collection, query, onSnapshot
 } from "https://www.gstatic.com/firebasejs/9.9.3/firebase-firestore.js";
+import { changeRoute } from './ruta.js';
 //import { db } from './config.js';
 //import { showPosts } from '../component/wall.js';
 
@@ -32,6 +33,7 @@ export const loginWithGoogle = () => {
       const token = credential.accessToken;
       // The signed-in user info.
       const user = result.user;
+      changeRoute("#/wall")
       // ...
     }).catch((error) => {
       // Handle Errors here.
@@ -65,6 +67,36 @@ const unsub = (callback) => {
 
   });
 }
+
+//export const createUser = (email, password) =>
+export const ingresarConUsuario = (email, password) => {
+const auth = getAuth();
+signInWithEmailAndPassword(auth, email, password) 
+  .then((userCredential) => {
+    // Signed in
+    const user = userCredential.user;
+    // ...
+  })
+  .catch((error) => {
+    const errorCode = error.code;
+    const errorMessage = error.message;
+  });
+}
+
+//const auth = getAuth();
+// export const ingresarConClave = (email, password) => {
+// createUserWithEmailAndPassword(auth, email, password)
+//   .then((userCredential) => {
+//     // Signed in
+//     const user = userCredential.user;
+//     changeRoute("#/wall");
+//     // ...
+//   })
+//   .catch((error) => {
+//     const errorCode = error.code;
+//     const errorMessage = error.message;
+//     //console.log(error)
+//   });
 
 // 
 // const bajarPosts = () => {

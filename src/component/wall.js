@@ -71,6 +71,8 @@ export const wall = () => {
         divPosteo.appendChild(postCard)
     });
 
+    
+
     // const botonPublicar = document.createElement("button");
     // //botonPublicar.setAttribute("type", "submit");
     // botonPublicar.classList.add("btn-post");
