@@ -3,8 +3,18 @@ html {
     padding: 0%;
 }
 body {
-    background-image: url(/src/component/fondo.jpg);
+    background-image: url(./component/fondonuevo.jpg);     
     text-align: center;
+    padding-top: 5%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    
+}
+.caja{
+    background: black;
+    
+    
+    
 }
 /* div{
     background: black;
@@ -55,9 +65,15 @@ nav{
     color: #8EBD9F;
 }
 /* Mobile */
-@media (max-width: 575px) {
+@media (max-width: 600px) {
     .character-container {
         width: 100%;
         /* padding-left: 20%; */
     }
+    body {
+        background: #FFDACC;       
+        text-align: center;   
+             
+    }
+    
 }

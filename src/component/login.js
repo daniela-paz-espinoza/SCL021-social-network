@@ -1,12 +1,17 @@
-import { createUser, loginWithGoogle } from "../lib/firebase.js";
+import { createUser, loginWithGoogle, ingresarConUsuario } from "../lib/firebase.js";
 import { changeRoute } from "../lib/ruta.js";
+
 
 export const login = () => {
   const logearse = document.createElement("div");
-
   logearse.className = "container-login";
   // logearse.textContent = "este es el login!";
   //console.log(logearse);
+
+  const caja = document.createElement("div");
+  caja.className = "caja";
+  logearse.appendChild(caja)
+
 
   const logoPrincipal = document.createElement("img");
   logoPrincipal.setAttribute("width", "200px");
@@ -32,16 +37,19 @@ export const login = () => {
   logearse.appendChild(document.createElement("br"));
 
 
-  
+
   const botonIngresar = document.createElement("button");
   botonIngresar.className = "btnIngresar";
-  //botonIngresar.innerHTML = "<a href ='#/wall'>Ingresar</a>";
-  botonIngresar.addEventListener("click" , ingresarConUsuario)
+  botonIngresar.innerHTML = "Ingresar";
+  botonIngresar.addEventListener("click", () => {
+    ingresarConUsuario(ingresarCorreo.value, ingresarClave.value).then(() => {
+      changeRoute("#/wall");
+    });
+
+  })
   logearse.appendChild(botonIngresar);
 
-  // ingresarConUsuario(ingresarCorreo.value, ingresarClave.value).then(() => {
-  //    changeRoute("#/wall");    
-  //  });
+
 
 
   const parrafoRegistrar = document.createElement("p");
@@ -58,9 +66,11 @@ export const login = () => {
 
   const botonGoogle = document.createElement("button");
   botonGoogle.innerHTML = "Login con Google";
-  botonGoogle.addEventListener("click" , loginWithGoogle)
-  
+  botonGoogle.addEventListener("click", loginWithGoogle)
+
   logearse.appendChild(botonGoogle)
 
   return logearse;
 };
+
+

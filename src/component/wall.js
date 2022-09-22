@@ -130,3 +130,4 @@ export const wall = () => {
 //         boxPrinc.appendChild(el);
 //     }
 // };
+
