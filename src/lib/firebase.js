@@ -1,4 +1,4 @@
-import { createUserWithEmailAndPassword, getAuth, signInWithPopup, GoogleAuthProvider, signInWithEmailAndPassword } from 'https://www.gstatic.com/firebasejs/9.9.3/firebase-auth.js';
+import { createUserWithEmailAndPassword, getAuth, signInWithPopup, GoogleAuthProvider, signInWithEmailAndPassword , sendSignInLinkToEmail } from 'https://www.gstatic.com/firebasejs/9.9.3/firebase-auth.js';
 const provider = new GoogleAuthProvider();
 import { auth, db } from './config.js';
 import {
@@ -70,46 +70,32 @@ const unsub = (callback) => {
 
 //export const createUser = (email, password) =>
 export const ingresarConUsuario = (email, password) => {
-const auth = getAuth();
-signInWithEmailAndPassword(auth, email, password) 
-  .then((userCredential) => {
-    // Signed in
-    const user = userCredential.user;
+  const auth = getAuth();
+  return signInWithEmailAndPassword(auth, email, password)
+    .then((userCredential) => {
+      // Signed in
+      const user = userCredential.user;
+      // ...
+    })
+    .catch((error) => {
+      const errorCode = error.code;
+      const errorMessage = error.message;
+    });
+}
+
+export const mailVerificacion = ();
+sendSignInLinkToEmail(auth, email, actionCodeSettings)
+  .then(() => {
+    // The link was successfully sent. Inform the user.
+    // Save the email locally so you don't need to ask the user for it again
+    // if they open the link on the same device.
+    window.localStorage.setItem('emailForSignIn', email);
     // ...
   })
   .catch((error) => {
     const errorCode = error.code;
     const errorMessage = error.message;
+    // ...
   });
-}
-
-//const auth = getAuth();
-// export const ingresarConClave = (email, password) => {
-// createUserWithEmailAndPassword(auth, email, password)
-//   .then((userCredential) => {
-//     // Signed in
-//     const user = userCredential.user;
-//     changeRoute("#/wall");
-//     // ...
-//   })
-//   .catch((error) => {
-//     const errorCode = error.code;
-//     const errorMessage = error.message;
-//     //console.log(error)
-//   });
-
-// 
-// const bajarPosts = () => {
-//   const q = query(collection(db, "post"));
-//   const unsubscribe = onSnapshot(q, (querySnapshot) => {
-//     const posts = [];
-//     querySnapshot.forEach((doc) => {
-//       posts.push(doc.data());
-//     });
-//     showPosts(posts);
-//     console.log("Estos son los posteos: ", posts);
-//   });
-// };
-// bajarPosts();
 
 export { createPost, unsub };
