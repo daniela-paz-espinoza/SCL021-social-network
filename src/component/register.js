@@ -41,12 +41,15 @@ export const register = () => {
         document.getElementsByClassName = "btnRegistrarse";
         document.getElementById("root").innerHTML = "";
         createUser(ingresarMail.value, ingresarContraseñaNueva.value).then(() => {
-            window.location.hash = "#/wall"
+            //window.location.hash = "#/wall"
+            alert
         })
 
     }
     );
     console.log(botonRegistrarse);
+
+    
 
     const sesionGoogle = document.createElement("p");
     sesionGoogle.textContent = "O resgistrate con";
