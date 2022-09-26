@@ -1,4 +1,4 @@
-import { createUser, loginWithGoogle, ingresarConUsuario } from "../lib/firebase.js";
+import { createUser, loginWithGoogle, ingresarConUsuario} from "../lib/firebase.js";
 import { changeRoute } from "../lib/ruta.js";
 
 
@@ -41,16 +41,26 @@ export const login = () => {
   const botonIngresar = document.createElement("button");
   botonIngresar.className = "btnIngresar";
   botonIngresar.innerHTML = "Ingresar";
+
   botonIngresar.addEventListener("click", () => {
-    ingresarConUsuario(ingresarCorreo.value, ingresarClave.value).then(() => {
-      changeRoute("#/wall");
-    });
-
+    if (ingresarCorreo.value === "" && ingresarClave.value ===""){
+return alert("ingresa tus datos")
+    }else{
+      ingresarConUsuario(ingresarCorreo.value, ingresarClave.value).then(() => {
+        changeRoute("#/wall");
+      });
+      
+   }
+    
   })
+
+  //function validarCorreo(){
+   // if (createUser)
+// a la funcion sendEmailVerification tenemos que decirle
+// que si el usuario esta verificado ingrese al muro y si no un alert para verificar correo
+//};
+
   logearse.appendChild(botonIngresar);
-
-
-
 
   const parrafoRegistrar = document.createElement("p");
   parrafoRegistrar.innerHTML = "¿No tienes clave? Registrate <a href ='#/register'>aqui</a>";
