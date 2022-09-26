@@ -1,6 +1,7 @@
 // // Este es el punto de entrada de tu aplicacion
 import { login } from "./component/login.js";
-import { changeRoute } from './lib/ruta.js';
+import { changeRoute} from './lib/ruta.js';
+
 
 // function start (){
     

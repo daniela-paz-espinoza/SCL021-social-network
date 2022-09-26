@@ -8,7 +8,7 @@ body {
     padding-top: 5%;
     background-repeat: no-repeat;
     background-size: cover;
-    
+  
 }
 .caja{
     background: black;
@@ -43,7 +43,7 @@ input{
     padding: 8px;
     /* display: flex; */
 }
-button{
+/*button{
     background: #FCB1A7;
     color: #8EBD9F;
     font-weight: bold;
@@ -51,18 +51,32 @@ button{
     padding: 7px;
     border: 1px;
     margin-bottom: 10px;
-}
+}*/
 nav{
     background: white;
 }
+
+.divPosteo{
+   display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+}
+
+
 #posteo{
     display: flex;
-    position: relative;
-    width: 25%;
-    margin-left: 35%;
-    text-align: center;
-    background: #FCB1A7;
-    color: #8EBD9F;
+  width: 25%;
+    margin: 20px;;
+  background: #f3c6c0;
+    color: #448f5f;
+  padding-bottom: 20px;
+ align-self: center;
+ border-radius: 10px; 
+ justify-content: center;
+}
+
+#text-description{
+    resize: none;
 }
 /* Mobile */
 @media (max-width: 600px) {
@@ -76,4 +90,16 @@ nav{
              
     }
     
+}
+
+.btnpost{
+ 
+ background: #FCB1A7;
+ color: #8EBD9F;
+ font-weight: bold;
+ border-radius: 5px;
+ padding: 7px;
+ border: 1px;
+ 
+
 }

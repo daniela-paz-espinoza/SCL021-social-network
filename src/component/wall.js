@@ -56,6 +56,7 @@ export const wall = () => {
     muroPrinc.appendChild(document.createElement("br"));
 
     const divPosteo = document.createElement("div");
+    divPosteo.className= "divPosteo";
     muroPrinc.appendChild(divPosteo);
 
    
@@ -63,8 +64,8 @@ export const wall = () => {
     
     unsub((post)=> {
         console.log("yo estoy en wall" , post)
-        const postCard = document.createElement("textarea");
-        postCard.setAttribute("readonly", "");
+        const postCard = document.createElement("div");
+       // postCard.setAttribute("readonly", "");
         postCard.setAttribute("id", "posteo");
         postCard.className = "post";
         postCard.innerText= post.content;
