@@ -1,9 +1,11 @@
-import { createUserWithEmailAndPassword, getAuth, signInWithPopup, GoogleAuthProvider, signInWithEmailAndPassword , sendEmailVerification } from 'https://www.gstatic.com/firebasejs/9.9.3/firebase-auth.js';
+import { collection, addDoc, query, onSnapshot, // collection, query, onSnapshot
+} from "https://www.gstatic.com/firebasejs/9.9.3/firebase-firestore.js";
+import {
+  createUserWithEmailAndPassword, getAuth, signInWithPopup, GoogleAuthProvider,
+  signInWithEmailAndPassword, sendEmailVerification, signOut
+} from 'https://www.gstatic.com/firebasejs/9.9.3/firebase-auth.js';
 const provider = new GoogleAuthProvider();
 import { auth, db } from './config.js';
-import {
-  collection, addDoc, query, onSnapshot,  // collection, query, onSnapshot
-} from "https://www.gstatic.com/firebasejs/9.9.3/firebase-firestore.js";
 import { changeRoute } from './ruta.js';
 //import { db } from './config.js';
 //import { showPosts } from '../component/wall.js';
@@ -54,6 +56,9 @@ async function createPost(texto) {
   console.log(db);
   await addDoc(collection(db, "post"), {
     content: texto,
+    likes: [],
+    date: new Date(),
+    author: "" // hacer ID del autor
   });
 
 }
@@ -84,6 +89,22 @@ export const ingresarConUsuario = (email, password) => {
     });
 }
 
-
-
+// // cerrar sesión
+// export const logOut = () => {
+//   signOut(auth).then(() => {
+//     window.location.hash = '#/login';
+//   }).catch((error) => {
+//     // An error happened.
+//   });
+// }
+// cerrar sesión
+export const logOut = () => {
+  signOut(auth).then(() => {
+    window.location.hash = "#/login";
+    console.log(logOut);
+  // Sign-out successful.
+}).catch((error) => {
+  // An error happened.
+});
+}
 export { createPost, unsub };
