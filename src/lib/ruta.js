@@ -29,3 +29,5 @@ export const changeRoute = (hash) => {
     rootContainer.appendChild(wall());
   }
 };
+
+//realizar una funcion que chequee si el usuario está logeado antes de cambiar la ruta

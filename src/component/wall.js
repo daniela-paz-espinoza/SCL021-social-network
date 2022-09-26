@@ -1,4 +1,4 @@
-import { createPost , unsub } from "../lib/firebase.js";
+import { createPost , unsub, logOut } from "../lib/firebase.js";
 
 export const wall = () => {
 
@@ -12,7 +12,7 @@ export const wall = () => {
 
     const logoPrincipal = document.createElement("img");
     logoPrincipal.setAttribute("width", "200px");
-    logoPrincipal.setAttribute("src", "./component/logoTrans.png");
+    logoPrincipal.setAttribute("src", "./component/logoNuevo.png");
     muroPrinc.appendChild(logoPrincipal);
 
     muroPrinc.appendChild(document.createElement("br"));
@@ -48,9 +48,17 @@ export const wall = () => {
         divPosteo.innerHTML = "";
         createPost(posteo.value);
     });
-    muroPrinc.appendChild(botonPublicar);
+  muroPrinc.appendChild(botonPublicar);
+  muroPrinc.appendChild(posteo);
 
-    muroPrinc.appendChild(posteo);
+// botón cerrar sesión
+    const btnLogOut = document.createElement("button");
+    btnLogOut.className = "btnLogOut";
+  btnLogOut.textContent = "Cerrar Sesión";
+  btnLogOut.addEventListener('click', logOut);
+  muroPrinc.appendChild(btnLogOut);
+
+   
 
     muroPrinc.appendChild(document.createElement("br"));
     muroPrinc.appendChild(document.createElement("br"));
@@ -71,7 +79,8 @@ export const wall = () => {
         postCard.innerText= post.content;
         divPosteo.appendChild(postCard)
     });
-
+ // ----- CERRAR SESIÓN -----------
+ 
     
 
     // const botonPublicar = document.createElement("button");
