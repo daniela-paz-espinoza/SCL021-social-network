@@ -40,10 +40,15 @@ export const register = () => {
     botonRegistrarse.addEventListener("click", function () {
         document.getElementsByClassName = "btnRegistrarse";
         document.getElementById("root").innerHTML = "";
-        createUser(ingresarMail.value, ingresarContraseñaNueva.value).then(() => {
-            //window.location.hash = "#/wall"
-            alert
-        })
+        createUser(ingresarMail.value, ingresarContraseñaNueva.value).then((resultado) => {
+            console.log(resultado);
+            window.location.hash = "#/wall"
+            
+        }).catch((error) => {
+            const errorCode = error.code;
+            const errorMessage = error.message;
+          });
+      
 
     }
     );
