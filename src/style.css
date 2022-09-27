@@ -35,6 +35,10 @@ p {
   margin: 1px;
 }
 
+a{
+    color: #FCB1A7;
+}
+
 input {
   background: #FFEEE6;
   border-radius: 5px;
@@ -129,4 +133,23 @@ nav {
   border-radius: 5px;
   padding: 7px;
   border: 1px;
+}
+
+.btnIngresar{
+    background: #FCB1A7;
+    color: #8EBD9F;
+    font-weight: bold;
+    border-radius: 5px;
+    padding: 7px;
+    border: 1px;
+   
+}
+
+.btnRegistrarse{
+    background: #FCB1A7;
+    color: #8EBD9F;
+    font-weight: bold;
+    border-radius: 5px;
+    padding: 7px;
+    border: 1px;   
 }

@@ -31,6 +31,7 @@ export const login = () => {
 
   const ingresarClave = document.createElement("input");
   ingresarClave.setAttribute("placeholder", "Contraseña");
+  ingresarClave.type = "password";
   logearse.appendChild(ingresarClave);
 
   logearse.appendChild(document.createElement("br"));
@@ -63,19 +64,17 @@ return alert("ingresa tus datos")
   logearse.appendChild(botonIngresar);
 
   const parrafoRegistrar = document.createElement("p");
-  parrafoRegistrar.innerHTML = "¿No tienes clave? Registrate <a href ='#/register'>aqui</a>";
+  parrafoRegistrar.innerHTML = "¿No tienes cuenta? Registrate <a href ='#/register'>aqui</a>";
   logearse.appendChild(parrafoRegistrar);
 
-  const parrafoRecuperarClave = document.createElement("p");
-  parrafoRecuperarClave.innerHTML = "¿Olvidaste tu clave? Recuperala <a href ='#/getPassword'>aqui</a>";
-  logearse.appendChild(parrafoRecuperarClave);
 
   const sesionGoogle = document.createElement("p");
   sesionGoogle.textContent = "Inicia sesion con";
   logearse.appendChild(sesionGoogle);
 
-  const botonGoogle = document.createElement("button");
-  botonGoogle.innerHTML = "Login con Google";
+  const botonGoogle = document.createElement("img");
+  botonGoogle.src= "./component/gootrans.jpg";
+  botonGoogle.setAttribute("width", "30px");
   botonGoogle.addEventListener("click", loginWithGoogle)
 
   logearse.appendChild(botonGoogle)
