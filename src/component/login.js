@@ -47,14 +47,14 @@ export const login = () => {
 return alert("ingresa tus datos")
     }else{
       ingresarConUsuario(ingresarCorreo.value, ingresarClave.value).then(() => {
-        changeRoute("#/wall");
+        window.location.hash = '#/wall'
       });
       
    }
     
   })
 
-  //function validarCorreo(){
+  // function validarCorreo(){
    // if (createUser)
 // a la funcion sendEmailVerification tenemos que decirle
 // que si el usuario esta verificado ingrese al muro y si no un alert para verificar correo
