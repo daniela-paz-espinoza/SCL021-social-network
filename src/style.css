@@ -83,7 +83,7 @@ nav {
 
 #text-description {
   resize: none;
-  background-color: #8EBD9F;
+  background-color: #d0efdb;
   position: relative;
   border-radius: 5px;
   top: 70px;
@@ -110,7 +110,8 @@ nav {
 }
 
 .btnpost {
-  position: absolute;
+
+
   top: 50%;
   left: 47%;
   background: #FCB1A7;
@@ -152,4 +153,9 @@ nav {
     border-radius: 5px;
     padding: 7px;
     border: 1px;   
+}
+
+.likeCat{
+  width: 30px;
+
 }

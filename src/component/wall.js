@@ -78,16 +78,19 @@ export const wall = () => {
         postCard.className = "post";
         postCard.innerText= post.content;
         divPosteo.appendChild(postCard)
-    });
-   // crear función
 
-    const likeCat = document.createElement("img");
-    likeCat.className = "likeCat";
+        const likeCat = document.createElement("img");
+   likeCat.className = "likeCat";
+   likeCat.setAttribute("width", "30px");
     likeCat.src = "./component/like.png";
     likeCat.addEventListener("click", () => {
       updateLikes(post.id); // likes actuales y currentUser(auth.currentUsuser)
     });
-    divPosteo.appendChild(likeCat);
+    postCard.appendChild(likeCat);
+    });
+   // crear función
+
+    
  
     
 
