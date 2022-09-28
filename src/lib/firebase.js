@@ -2,13 +2,16 @@ import { collection, addDoc, query, onSnapshot, // collection, query, onSnapshot
 } from "https://www.gstatic.com/firebasejs/9.9.3/firebase-firestore.js";
 import {
   createUserWithEmailAndPassword, getAuth, signInWithPopup, GoogleAuthProvider,
-  signInWithEmailAndPassword, sendEmailVerification, signOut
+  signInWithEmailAndPassword, sendEmailVerification, signOut, onAuthStateChanged
 } from 'https://www.gstatic.com/firebasejs/9.9.3/firebase-auth.js';
 const provider = new GoogleAuthProvider();
 import { auth, db } from './config.js';
 import { changeRoute } from './ruta.js';
+// const auth = getAuth();
+let myUser;
 //import { db } from './config.js';
 //import { showPosts } from '../component/wall.js';
+
 
 
 export const createUser = (email, password) =>
@@ -28,7 +31,6 @@ export const createUser = (email, password) =>
 
 
 export const loginWithGoogle = () => {
-  const auth = getAuth();
   signInWithPopup(auth, provider)
     .then((result) => {
       // This gives you a Google Access Token. You can use it to access the Google API.
@@ -58,21 +60,32 @@ async function createPost(texto) {
     content: texto,
     likes: [],
     date: new Date(),
-    author: "" // hacer ID del autor
+    author: myUser.uid // hacer ID del autor
   });
 
 }
 
 
-const unsub = (callback) => {
+const subscribe = (callback) => {
   onSnapshot(query(collection(db, "post")), (docs) => {
     docs.forEach(doc => {
       //console.log("Current data: ", doc.data());
       callback(doc.data())
     });
-
   });
 }
+
+onAuthStateChanged(auth, (user) => {
+  if (user) {
+    // User is signed in, see docs for a list of available properties
+    // https://firebase.google.com/docs/reference/js/firebase.User
+    myUser = user;
+    // ...
+  } else {
+    // User is signed out
+    // ...
+  }
+});
 
 //export const createUser = (email, password) =>
 export const ingresarConUsuario = (email, password) => {
@@ -107,4 +120,4 @@ export const logOut = () => {
   // An error happened.
 });
 }
-export { createPost, unsub };
+export { createPost, subscribe };

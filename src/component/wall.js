@@ -1,4 +1,4 @@
-import { createPost , unsub, logOut } from "../lib/firebase.js";
+import { createPost , subscribe, logOut } from "../lib/firebase.js";
 
 export const wall = () => {
 
@@ -70,7 +70,7 @@ export const wall = () => {
    
 
     
-    unsub((post)=> {
+    subscribe((post)=> {
         console.log("yo estoy en wall" , post)
         const postCard = document.createElement("div");
        // postCard.setAttribute("readonly", "");
@@ -78,8 +78,19 @@ export const wall = () => {
         postCard.className = "post";
         postCard.innerText= post.content;
         divPosteo.appendChild(postCard)
+
+        const likeCat = document.createElement("img");
+   likeCat.className = "likeCat";
+   likeCat.setAttribute("width", "30px");
+    likeCat.src = "./component/like.png";
+    likeCat.addEventListener("click", () => {
+      updateLikes(post.id); // likes actuales y currentUser(auth.currentUsuser)
     });
- // ----- CERRAR SESIÓN -----------
+    postCard.appendChild(likeCat);
+    });
+   // crear función
+
+    
  
     
 

@@ -1,4 +1,4 @@
-import { createUser } from "../lib/firebase.js";
+import { createUser,loginWithGoogle } from "../lib/firebase.js";
 
 export const register = () => {
     const registrarse = document.createElement("div");
@@ -38,16 +38,22 @@ export const register = () => {
     registrarse.appendChild(botonRegistrarse);
 
     botonRegistrarse.addEventListener("click", function () {
+        if (ingresarMail.value === "" && ingresarContraseñaNueva.value ===""){
+            return alert("Crea tu cuenta")
+                }else{
+                    createUser(ingresarMail.value, ingresarContraseñaNueva.value).then((resultado) => {
+                        console.log(resultado);
+                        window.location.hash = "#/wall"
+                    }).catch((error) => {
+                        const errorCode = error.code;
+                        const errorMessage = error.message;
+                      });
+                }
         document.getElementsByClassName = "btnRegistrarse";
         document.getElementById("root").innerHTML = "";
-        createUser(ingresarMail.value, ingresarContraseñaNueva.value).then((resultado) => {
-            console.log(resultado);
-            window.location.hash = "#/wall"
+        
             
-        }).catch((error) => {
-            const errorCode = error.code;
-            const errorMessage = error.message;
-          });
+      
       
 
     }
@@ -60,10 +66,13 @@ export const register = () => {
     sesionGoogle.textContent = "O resgistrate con";
     registrarse.appendChild(sesionGoogle);
 
-    const imagenGoogle = document.createElement("img");
-    imagenGoogle.setAttribute("width", "20px");
-    imagenGoogle.setAttribute("src", "./component/gootrans.jpg");
-    registrarse.appendChild(imagenGoogle)
+   
+  const imagenGoogle = document.createElement("img");
+  imagenGoogle.src= "./component/gootrans.jpg";
+  imagenGoogle.setAttribute("width", "30px");
+  imagenGoogle.addEventListener("click", loginWithGoogle)
+
+  registrarse.appendChild(imagenGoogle)
 
     return registrarse;
 }
