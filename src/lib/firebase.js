@@ -76,7 +76,7 @@ const subscribe = (callback) => {
   onSnapshot(query(collection(db, "post")), (docs) => {
     docs.forEach((doc) => {
       //console.log("Current data: ", doc.data());
-      callback(doc.data(),doc.id);
+      callback({...doc.data(),id:doc.id});
     });
   });
 };
@@ -129,9 +129,9 @@ export const logOut = () => {
     });
 };
 
-export const updateLikes = (doc) => {
+export const updateLikes = (post) => {
 
-  const ref = doc(db, "post", doc.id);
+  const ref = doc(db, "post", post.id);
   updateDoc(ref, { likes: ["hola"] });
 };
 export { createPost, subscribe };
