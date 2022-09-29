@@ -92,6 +92,7 @@ nav {
   -moz-border-radius: 5px;
   -ms-border-radius: 5px;
   -o-border-radius: 5px;
+  height: 50px;
 }
 
 /* Mobile */
@@ -111,9 +112,9 @@ nav {
 
 .btnpost {
 
-
-  top: 50%;
+  top: 100%;
   left: 47%;
+  right: 47%;
   background: #FCB1A7;
   color: #8EBD9F;
   font-weight: bold;
@@ -122,10 +123,13 @@ nav {
   border: 1px;
 
 
+
 }
 
 .btnLogOut {
-  position: absolute;
+  
+  flex-direction: column;
+  
   top: 35%;
   left: 45%;
   background: #FCB1A7;
